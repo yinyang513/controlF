@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1> Welcome to ControlF!</h1>
+<p>Too lazy to watch your one hour lectures? Well, need no more! Please enter a youtube video link and a word you want to find.</p>
+
+{% if name %}
+    {{name}}
+{% endif %}
+
+{% if form %}
+    <form action="/action_page.php">
+        <label for="utube">Youtube URL:</label>
+        <input type="text" id="utube" name="utube" allow="encrypted-media"><br><br>
+        <label for="word">Word:</label>
+        <input type="text" id="word" name="word"><br><br>
+        <input type="submit" />
+    </form>
+{% endif %}
+
+{% if timestamps %}
+    {% for stamp in timestamps %}
+        {{stamp}}
+    {% endfor %}
+{% endif %}
+
+
+</body>
+</html>
