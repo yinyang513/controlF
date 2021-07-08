@@ -6,25 +6,33 @@
 <p>Too lazy to watch your one hour lectures? Well, need no more! Please enter a youtube video link and a word you want to find.</p>
 
 {% if name %}
-    {{name}}
+    {{name}}<br></br>
 {% endif %}
 
 {% if form %}
-    <form action="/action_page.php">
+    <form action="http://localhost:5000" method="post">
         <label for="utube">Youtube URL:</label>
-        <input type="text" id="utube" name="utube" allow="encrypted-media"><br><br>
+        <input type="text" id="utube" name="utube" ><br><br>
         <label for="word">Word:</label>
         <input type="text" id="word" name="word"><br><br>
         <input type="submit" />
     </form>
 {% endif %}
 
-{% if timestamps %}
-    {% for stamp in timestamps %}
-        {{stamp}}
+{% if links_timestamps %}
+    {% for link, time in links_timestamps %}
+        <a href={{link}}>{{time}}</a><br></br>
     {% endfor %}
 {% endif %}
 
+{% if back %}
+    <button onclick="goBack()">Find More Words!</button>
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+    </script>
+{% endif %}
 
 </body>
 </html>
